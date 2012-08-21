@@ -1,0 +1,8 @@
+c:\users\erico\documents\visual studio 2010\Projects\Sos\Sos.MigracaoDados\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\erico\documents\visual studio 2010\Projects\Sos\Sos.MigracaoDados\bin\Debug\Sos.MigracaoDados.exe
+c:\users\erico\documents\visual studio 2010\Projects\Sos\Sos.MigracaoDados\bin\Debug\Sos.MigracaoDados.pdb
+c:\users\erico\documents\visual studio 2010\Projects\Sos\Sos.MigracaoDados\bin\Debug\Sos.Negocio.dll
+c:\users\erico\documents\visual studio 2010\Projects\Sos\Sos.MigracaoDados\bin\Debug\Sos.Negocio.pdb
+c:\users\erico\documents\visual studio 2010\Projects\Sos\Sos.MigracaoDados\obj\x86\Debug\Sos.MigracaoDados.exe
+c:\users\erico\documents\visual studio 2010\Projects\Sos\Sos.MigracaoDados\obj\x86\Debug\Sos.MigracaoDados.pdb
+c:\users\erico\documents\visual studio 2010\Projects\Sos\Sos.MigracaoDados\bin\Debug\Sos.MigracaoDados.exe.config

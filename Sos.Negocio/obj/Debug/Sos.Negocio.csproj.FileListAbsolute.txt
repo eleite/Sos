@@ -1,0 +1,6 @@
+c:\users\erico\documents\visual studio 2010\Projects\Sos\Sos.Negocio\bin\Debug\Sos.Negocio.dll.config
+c:\users\erico\documents\visual studio 2010\Projects\Sos\Sos.Negocio\bin\Debug\Sos.Negocio.dll
+c:\users\erico\documents\visual studio 2010\Projects\Sos\Sos.Negocio\bin\Debug\Sos.Negocio.pdb
+c:\users\erico\documents\visual studio 2010\Projects\Sos\Sos.Negocio\obj\Debug\ResolveAssemblyReference.cache
+c:\users\erico\documents\visual studio 2010\Projects\Sos\Sos.Negocio\obj\Debug\Sos.Negocio.dll
+c:\users\erico\documents\visual studio 2010\Projects\Sos\Sos.Negocio\obj\Debug\Sos.Negocio.pdb

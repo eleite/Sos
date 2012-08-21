@@ -1,0 +1,406 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7363242A-AACD-4A48-8E44-07609EDD10EF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sos</RootNamespace>
+    <AssemblyName>Sos</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ext.Net">
+      <HintPath>..\..\..\..\..\..\..\dll\Ext.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Ext.Net.Utilities">
+      <HintPath>..\..\..\..\..\..\..\dll\Ext.Net.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\..\..\..\dll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Recaptcha">
+      <HintPath>..\..\..\..\..\..\..\dll\Recaptcha.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Transformer.NET">
+      <HintPath>..\..\..\..\..\..\..\dll\Transformer.NET.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="resources\css\Paginador.css" />
+    <Content Include="resources\css\Site.css" />
+    <Content Include="resources\css\style.ie6.css" />
+    <Content Include="resources\css\style.ie7.css" />
+    <Content Include="resources\css\Vitrine.css" />
+    <Content Include="resources\images\spinbtn_updn.gif" />
+    <Content Include="resources\js\jquery-ui-1.8.22.effect-Pulsate.min.js" />
+    <Content Include="resources\js\JQuerySpinBtn.js" />
+    <Content Include="resources\images\bg_caption.gif" />
+    <Content Include="resources\images\bg_footer.gif" />
+    <Content Include="resources\images\bg_th.gif" />
+    <Content Include="resources\images\block_h.png" />
+    <Content Include="resources\images\block_s.png" />
+    <Content Include="resources\images\block_v.png" />
+    <Content Include="resources\images\btn_comprar.jpg" />
+    <Content Include="resources\images\button.png" />
+    <Content Include="resources\images\construcao4.jpg" />
+    <Content Include="resources\images\contact.jpg" />
+    <Content Include="resources\images\em_breve.jpg" />
+    <Content Include="resources\images\footer.png" />
+    <Content Include="resources\images\header.gif" />
+    <Content Include="resources\images\logo.png" />
+    <Content Include="resources\images\menuitem.png" />
+    <Content Include="resources\images\menuseparator.png" />
+    <Content Include="resources\images\nav.png" />
+    <Content Include="resources\images\no-image.jpg" />
+    <Content Include="resources\images\page_g.jpg" />
+    <Content Include="resources\images\page_sg.jpg" />
+    <Content Include="resources\images\post_h.png" />
+    <Content Include="resources\images\post_s.png" />
+    <Content Include="resources\images\post_v.png" />
+    <Content Include="resources\images\produtos\small\01.png" />
+    <Content Include="resources\images\produtos\small\03.png" />
+    <Content Include="resources\images\produtos\small\ABSINTO.jpg" />
+    <Content Include="resources\images\produtos\small\absolut.jpg" />
+    <Content Include="resources\images\produtos\small\agas500 copy.jpg" />
+    <Content Include="resources\images\produtos\small\agua1,5.jpg" />
+    <Content Include="resources\images\produtos\small\agua500ml.jpg" />
+    <Content Include="resources\images\produtos\small\AGUADABICA.jpg" />
+    <Content Include="resources\images\produtos\small\ALMCABERNET.jpg" />
+    <Content Include="resources\images\produtos\small\AMBER.jpg" />
+    <Content Include="resources\images\produtos\small\amoking.jpg" />
+    <Content Include="resources\images\produtos\small\ANTARTICA %281%29.jpg" />
+    <Content Include="resources\images\produtos\small\antartica.jpg" />
+    <Content Include="resources\images\produtos\small\antarticasubzero.jpg" />
+    <Content Include="resources\images\produtos\small\arrow_black.gif" />
+    <Content Include="resources\images\produtos\small\Austria_Pilsen.jpg" />
+    <Content Include="resources\images\produtos\small\AUTRIA.jpg" />
+    <Content Include="resources\images\produtos\small\AUTRIAPILSEN.jpg" />
+    <Content Include="resources\images\produtos\small\Bacardi blanca.jpg" />
+    <Content Include="resources\images\produtos\small\bacardi lemon.jpg" />
+    <Content Include="resources\images\produtos\small\bacardi oro.jpg" />
+    <Content Include="resources\images\produtos\small\baden baden red.jpg" />
+    <Content Include="resources\images\produtos\small\baden baden.jpg" />
+    <Content Include="resources\images\produtos\small\BADEN.jpg" />
+    <Content Include="resources\images\produtos\small\BAdengolden.jpg" />
+    <Content Include="resources\images\produtos\small\BADENSTOUT.jpg" />
+    <Content Include="resources\images\produtos\small\BAVARIA 600 PREMIUM.jpg" />
+    <Content Include="resources\images\produtos\small\bavaria classica.jpg" />
+    <Content Include="resources\images\produtos\small\BECOSA.jpg" />
+    <Content Include="resources\images\produtos\small\boehmia.jpg" />
+    <Content Include="resources\images\produtos\small\BOHEMIA.jpg" />
+    <Content Include="resources\images\produtos\small\bra.jpg" />
+    <Content Include="resources\images\produtos\small\BRAHMA.jpg" />
+    <Content Include="resources\images\produtos\small\CAMPARI.jpg" />
+    <Content Include="resources\images\produtos\small\CATUABA.jpg" />
+    <Content Include="resources\images\produtos\small\coca2l.jpg" />
+    <Content Include="resources\images\produtos\small\cocalata.jpg" />
+    <Content Include="resources\images\produtos\small\cocazero2l.jpg" />
+    <Content Include="resources\images\produtos\small\Coca_cola_lata.jpg" />
+    <Content Include="resources\images\produtos\small\COITE.jpg" />
+    <Content Include="resources\images\produtos\small\CONCHA.jpg" />
+    <Content Include="resources\images\produtos\small\confrario.jpg" />
+    <Content Include="resources\images\produtos\small\devassa.jpg" />
+    <Content Include="resources\images\produtos\small\DEVASSABLOURA.jpg" />
+    <Content Include="resources\images\produtos\small\domeq.jpg" />
+    <Content Include="resources\images\produtos\small\dreher.jpg" />
+    <Content Include="resources\images\produtos\small\DUNKEL.jpg" />
+    <Content Include="resources\images\produtos\small\eisban.jpg" />
+    <Content Include="resources\images\produtos\small\eiseban.jpg" />
+    <Content Include="resources\images\produtos\small\eisebastrog.jpg" />
+    <Content Include="resources\images\produtos\small\EISENBAHN.jpg" />
+    <Content Include="resources\images\produtos\small\EISENBHAN.jpg" />
+    <Content Include="resources\images\produtos\small\EXTRA.jpg" />
+    <Content Include="resources\images\produtos\small\fanta2l.jpg" />
+    <Content Include="resources\images\produtos\small\fantalata.jpg" />
+    <Content Include="resources\images\produtos\small\fantauva2l.jpg" />
+    <Content Include="resources\images\produtos\small\FREE.jpg" />
+    <Content Include="resources\images\produtos\small\gas1,5.jpg" />
+    <Content Include="resources\images\produtos\small\GATCABERNET.jpg" />
+    <Content Include="resources\images\produtos\small\GERMANA.jpg" />
+    <Content Include="resources\images\produtos\small\Gim copy.jpg" />
+    <Content Include="resources\images\produtos\small\gualata.jpg" />
+    <Content Include="resources\images\produtos\small\guara1,5.jpg" />
+    <Content Include="resources\images\produtos\small\guarazero1,5l.jpg" />
+    <Content Include="resources\images\produtos\small\guazrolata.jpg" />
+    <Content Include="resources\images\produtos\small\halssmorang.jpg" />
+    <Content Include="resources\images\produtos\small\heiken.jpg" />
+    <Content Include="resources\images\produtos\small\HEINEKEN.jpg" />
+    <Content Include="resources\images\produtos\small\images - Copia.jpg" />
+    <Content Include="resources\images\produtos\small\images - Cópia.jpg" />
+    <Content Include="resources\images\produtos\small\images.jpg" />
+    <Content Include="resources\images\produtos\small\ISQUEIRO.jpg" />
+    <Content Include="resources\images\produtos\small\kaisesamer.jpg" />
+    <Content Include="resources\images\produtos\small\krone.jpg" />
+    <Content Include="resources\images\produtos\small\lata brahma.jpg" />
+    <Content Include="resources\images\produtos\small\latão brahma.jpg" />
+    <Content Include="resources\images\produtos\small\liber.jpg" />
+    <Content Include="resources\images\produtos\small\malibu.jpg" />
+    <Content Include="resources\images\produtos\small\MALZE.jpg" />
+    <Content Include="resources\images\produtos\small\Martini branco.jpg" />
+    <Content Include="resources\images\produtos\small\no-image.jpg" />
+    <Content Include="resources\images\produtos\small\ns.jpg" />
+    <Content Include="resources\images\produtos\small\nslat-%27ao.jpg" />
+    <Content Include="resources\images\produtos\small\ORIGINAL.jpg" />
+    <Content Include="resources\images\produtos\small\orlof.jpg" />
+    <Content Include="resources\images\produtos\small\pepsi-lata.jpg" />
+    <Content Include="resources\images\produtos\small\pepsi.jpg" />
+    <Content Include="resources\images\produtos\small\pilsen eiseban.jpg" />
+    <Content Include="resources\images\produtos\small\preto.jpg" />
+    <Content Include="resources\images\produtos\small\red.jpg" />
+    <Content Include="resources\images\produtos\small\SALINAS.jpg" />
+    <Content Include="resources\images\produtos\small\saoda2.jpg" />
+    <Content Include="resources\images\produtos\small\schwepslata.jpg" />
+    <Content Include="resources\images\produtos\small\schwpstonica.jpg" />
+    <Content Include="resources\images\produtos\small\SELETA.jpg" />
+    <Content Include="resources\images\produtos\small\SENTINELABALSAMO.jpg" />
+    <Content Include="resources\images\produtos\small\SERRAMALTE.jpg" />
+    <Content Include="resources\images\produtos\small\SERRO.jpg" />
+    <Content Include="resources\images\produtos\small\SKOL LITRÃO.jpg" />
+    <Content Include="resources\images\produtos\small\skol.jpg" />
+    <Content Include="resources\images\produtos\small\skol600.jpg" />
+    <Content Include="resources\images\produtos\small\skollat-%27ao.jpg" />
+    <Content Include="resources\images\produtos\small\sminorff vodka.jpg" />
+    <Content Include="resources\images\produtos\small\sodalata.jpg" />
+    <Content Include="resources\images\produtos\small\Sprite_2L.jpg" />
+    <Content Include="resources\images\produtos\small\stela.jpg" />
+    <Content Include="resources\images\produtos\small\STELLA.jpg" />
+    <Content Include="resources\images\produtos\small\sukitalata.jpg" />
+    <Content Include="resources\images\produtos\small\tequila ouro.jpg" />
+    <Content Include="resources\images\produtos\small\tequila prata.jpg" />
+    <Content Include="resources\images\produtos\small\TQCLASSICA.jpg" />
+    <Content Include="resources\images\produtos\small\tridanettuti.jpg" />
+    <Content Include="resources\images\produtos\small\trident.jpg" />
+    <Content Include="resources\images\produtos\small\tridentmorango.jpg" />
+    <Content Include="resources\images\produtos\small\UVALITRA.jpg" />
+    <Content Include="resources\images\produtos\small\VALEVERDE.jpg" />
+    <Content Include="resources\images\produtos\small\WHITE HORSE.jpg" />
+    <Content Include="resources\images\produtos\small\XINGU.jpg" />
+    <Content Include="resources\images\produtos\small\zerolata.jpg" />
+    <Content Include="resources\images\produtos\small\ZUB ZERO.jpg" />
+    <Content Include="resources\images\sheet_c.png" />
+    <Content Include="resources\images\sheet_h.png" />
+    <Content Include="resources\images\sheet_s.png" />
+    <Content Include="resources\images\sheet_v.png" />
+    <Content Include="resources\images\spacer.gif" />
+    <Content Include="resources\images\subitem.png" />
+    <Content Include="resources\images\title.gif" />
+    <Content Include="resources\images\vmenublock_h.png" />
+    <Content Include="resources\images\vmenublock_s.png" />
+    <Content Include="resources\images\vmenublock_v.png" />
+    <Content Include="resources\images\vmenuitem.png" />
+    <Content Include="resources\js\jquery-1.7.2.js" />
+    <Content Include="resources\js\jquery.paginate.js" />
+    <Content Include="resources\js\Vitrine.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="WebForm1.aspx" />
+    <Content Include="WebPage\AdicionarProdutoCasco.aspx" />
+    <Content Include="WebPage\CalcularTaxaEntrega.aspx" />
+    <Content Include="WebPage\ComoComprar.aspx" />
+    <Content Include="WebPage\ComoFunciona.aspx" />
+    <Content Include="WebPage\EmConstrucao.aspx" />
+    <Content Include="WebPage\FaleConosco.aspx" />
+    <Content Include="WebPage\GerenciarContaUsuario.aspx" />
+    <Content Include="WebPage\GerenciarImagemProduto.aspx" />
+    <Content Include="WebPage\Home.aspx" />
+    <Content Include="WebPage\Login.aspx" />
+    <Content Include="WebPage\UC_GridCarrinhoCompra.ascx" />
+    <Content Include="WebPage\VitrineProdutos.aspx" />
+    <Content Include="WebPage\WizardCompra.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\AdicionarProdutoCasco.aspx.cs">
+      <DependentUpon>AdicionarProdutoCasco.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\AdicionarProdutoCasco.aspx.designer.cs">
+      <DependentUpon>AdicionarProdutoCasco.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\BasePage.Master.cs">
+      <DependentUpon>BasePage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\BasePage.Master.designer.cs">
+      <DependentUpon>BasePage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\CalcularTaxaEntrega.aspx.cs">
+      <DependentUpon>CalcularTaxaEntrega.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\CalcularTaxaEntrega.aspx.designer.cs">
+      <DependentUpon>CalcularTaxaEntrega.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\ComoComprar.aspx.cs">
+      <DependentUpon>ComoComprar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\ComoComprar.aspx.designer.cs">
+      <DependentUpon>ComoComprar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\ComoFunciona.aspx.cs">
+      <DependentUpon>ComoFunciona.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\ComoFunciona.aspx.designer.cs">
+      <DependentUpon>ComoFunciona.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\EmConstrucao.aspx.cs">
+      <DependentUpon>EmConstrucao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\EmConstrucao.aspx.designer.cs">
+      <DependentUpon>EmConstrucao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\FaleConosco.aspx.cs">
+      <DependentUpon>FaleConosco.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\FaleConosco.aspx.designer.cs">
+      <DependentUpon>FaleConosco.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\GerenciarContaUsuario.aspx.cs">
+      <DependentUpon>GerenciarContaUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\GerenciarContaUsuario.aspx.designer.cs">
+      <DependentUpon>GerenciarContaUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\GerenciarImagemProduto.aspx.cs">
+      <DependentUpon>GerenciarImagemProduto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\GerenciarImagemProduto.aspx.designer.cs">
+      <DependentUpon>GerenciarImagemProduto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\UC_GridCarrinhoCompra.ascx.cs">
+      <DependentUpon>UC_GridCarrinhoCompra.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\UC_GridCarrinhoCompra.ascx.designer.cs">
+      <DependentUpon>UC_GridCarrinhoCompra.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\Util\SegurancaUsuario.cs" />
+    <Compile Include="WebPage\Util\TelaUtil.cs" />
+    <Compile Include="WebPage\VitrineProdutos.aspx.cs">
+      <DependentUpon>VitrineProdutos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\VitrineProdutos.aspx.designer.cs">
+      <DependentUpon>VitrineProdutos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\WizardCompra.aspx.cs">
+      <DependentUpon>WizardCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\WizardCompra.aspx.designer.cs">
+      <DependentUpon>WizardCompra.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="resources\fonts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="WebPage\BasePage.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sos.Negocio\Sos.Negocio.csproj">
+      <Project>{6C005A3B-E50A-40F3-A9C1-91A1398C60DE}</Project>
+      <Name>Sos.Negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59033</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,272 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="BasePage.master.cs" Inherits="Sos.WebPage.BasePage" %>
+
+<%@ Register assembly="Ext.Net" namespace="Ext.Net" tagprefix="ext" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <meta name="description" content="SOS GORO BH. O Melhor Tele Cerveja de Belo Horizonte - (31)3567-8810, R. itajuba, 760 - floresta, Belo Horizonte-MG" />
+    <meta name="Keywords" content="sos goro, belo horizonte, bh, tele cerveja, (31)3567-8810, R. itajuba, 760 - floresta, Belo Horizonte-MG" />
+    <meta name="ratting" content="General" />
+    <meta name="geo.region" content="BR" />
+    <meta name="author" content="erico" />
+    <meta name="language" content="pt-br" />
+
+    <title>SOS GORÓ - O Melhor tele-cerveja de BH</title>
+    
+    <ext:ResourcePlaceHolder ID="ResourcePlaceHolder1" runat="server" Mode="Script" />
+
+    <link rel="stylesheet" type="text/css" href="/resources/css/Site.css" />
+    <!--[if IE 6]><link rel="stylesheet" type="text/css" href="/resources/css/style.ie6.css" /><![endif]-->
+    <!--[if IE 6]><link rel="stylesheet" type="text/css" href="/resources/css/style.ie7.css" /><![endif]-->
+    <script src="/resources/js/jquery-1.7.2.js" type="text/javascript"></script>
+
+    <script type="text/javascript" >
+        var CorrigirCssTable = function (Cmp) {
+            $('tbody tr th', $(Cmp.el.dom)).css('padding', '0').css('border', 'none');
+            $('tbody tr td', $(Cmp.el.dom)).css('padding', '0').css('border', 'none');
+            $('td', $(Cmp.el.dom)).css('padding', '0').css('border', 'none');
+        };
+        var moverScroll = function moverScroll() { $('html,body').animate({ scrollTop: $("#areaCentral").offset().top }, 2000); }
+
+        var upCategoria = function (json) {
+            App.TemplateCategorias.overwrite('uiCategorias', jQuery.parseJSON(json));
+        };
+        var Teste = function (a, b, c, d, e, f) {
+            console.log('sd');
+        };
+
+        var onBeforeShow = function (toolTip, grid) {
+            var view = grid.getView();
+            var store = grid.getStore();
+            var aux = view.findItemByChild(toolTip.triggerElement);
+            if (aux == null) return false;
+            var rowIndex = aux.viewIndex;
+            var record = store.getAt(rowIndex);
+            var column = view.getHeaderByCell(toolTip.triggerElement);
+            if (column.dataIndex == "Nome") {
+                var data = record.get(column.dataIndex);
+                toolTip.update(data);
+            }
+            else
+                toolTip.hide();
+        };
+        
+    </script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="Form1" runat="server">
+        <ext:ResourceManager runat="server" />
+
+        <ext:XTemplate ID="TemplateCategorias" IDMode="Static" runat="server">
+	        <Html>
+		        <tpl for=".">
+                    <li id="liCat{ID}"> 
+                        <a alt="{Nome}" hRef="VitrineProdutos.aspx?ID={ID}">
+                            <span class="l"></span>
+                            <span class="r"></span> 
+                            <span class='t'>{Nome}</span>
+                        </a> 
+                    </li>
+                </tpl>
+            </Html>
+        </ext:XTemplate>
+        <div id="art-page-background-simple-gradient">
+            <div id="art-page-background-gradient">
+            </div>
+        </div>
+        <div id="art-main">
+            <div class="art-sheet">
+                <div class="art-sheet-tl">
+                </div>
+                <div class="art-sheet-tr">
+                </div>
+                <div class="art-sheet-bl">
+                </div>
+                <div class="art-sheet-br">
+                </div>
+                <div class="art-sheet-tc">
+                </div>
+                <div class="art-sheet-bc">
+                </div>
+                <div class="art-sheet-cl">
+                </div>
+                <div class="art-sheet-cr">
+                </div>
+                <div class="art-sheet-cc">
+                </div>
+                <div class="art-sheet-body">
+                    <div class="art-nav">
+                        <div class="l">
+                        </div>
+                        <div class="r">
+                        </div>
+                        <ul class="art-menu">
+                            <li><a class="active" href="Home.aspx"><span class="l"></span><span class="r"></span><span class="t">Página Inicial</span></a></li>
+                            <li id="liLogin" style="display: inline !important;float: right !important;"><a href="Login.aspx"><span class="l"></span><span class="r"></span><span class="t">Novo Usuário? Clique aqui</span></a></li>
+                            <li id="liSair" style="display: inline !important;float: right !important;"><a><span class="l"></span><span class="r"></span><span class="t"></span></a></li>
+                            <li id="liGerenciar" style="display: inline !important;float: right !important;"><a href="GerenciarContaUsuario.aspx"><span class="l"></span><span class="r"></span><span class="t"></span></a></li>                            
+                        </ul>
+                    </div>
+                    <div class="art-header">
+                        <div class="art-header-jpeg" title="SOS GORO BH">
+                        </div>
+                        <div class="art-logo">
+                            <h1 id="name-text" class="art-logo-name">
+                            </h1>
+                            <div id="slogan-text" class="art-logo-text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="art-content-layout">
+                        <div class="art-content-layout-row">
+                            <div class="art-layout-cell art-sidebar1">
+                                <div class="art-vmenublock">
+                                    <div class="art-vmenublock-tl">
+                                    </div>
+                                    <div class="art-vmenublock-tr">
+                                    </div>
+                                    <div class="art-vmenublock-bl">
+                                    </div>
+                                    <div class="art-vmenublock-br">
+                                    </div>
+                                    <div class="art-vmenublock-tc">
+                                    </div>
+                                    <div class="art-vmenublock-bc">
+                                    </div>
+                                    <div class="art-vmenublock-cl">
+                                    </div>
+                                    <div class="art-vmenublock-cr">
+                                    </div>
+                                    <div class="art-vmenublock-cc">
+                                    </div>
+                                    <div class="art-vmenublock-body">
+                                        <div class="art-vmenublockheader">
+                                            <div class="t">
+                                                Menu
+                                            </div>
+                                        </div>
+                                        <div class="art-vmenublockcontent">
+                                            <div class="art-vmenublockcontent-body">
+                                                <!-- block-content -->
+                                                <ul class="art-vmenu">
+                                                    <li>
+                                                    <a href="Home.aspx"><span class="l"></span><span class="r"></span><span class="t">Página Inicial</span></a>
+                                                    </li>
+                                                    <li><a href="EmConstrucao.aspx"><span class="l"></span><span class="r"></span><span class="t">Promoções</span></a>
+                                                    </li>
+                                                    <li><a href="EmConstrucao.aspx"><span class="l"></span><span class="r"></span><span class="t">Loja Virtual</span></a>
+                                                    </li>
+                                                    <li id="liCategorias">
+                                                        <a onclick="if ($('#uiCategorias').is(':visible')) $('#uiCategorias').hide(); else $('#uiCategorias').show()"><span class="l"></span><span class="r"></span><span class="t">Cardápio</span> </a>
+                                                        <ul id="uiCategorias" style="display:none;padding-left: 20px;">                            
+								                        </ul>
+                                                    </li>
+                                                    <li><a href="CalcularTaxaEntrega.aspx"><span class="l"></span><span class="r"></span><span class="t">Calcule a Taxa de Serviço</span></a></li>
+                                                    <li><a href="ComoFunciona.aspx"><span class="l"></span><span class="r"></span><span class="t">Como Funciona</span></a></li>
+                                                    <li><a href="ComoComprar.aspx"><span class="l"></span><span class="r"></span><span class="t">Como Comprar</span></a></li>
+                                                    <li><a href="FaleConosco.aspx"><span class="l"></span><span class="r"></span><span class="t">Fale Conosco</span></a></li>
+                                                </ul>
+                                                <div class="cleared">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cleared">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="art-block">
+                                    <div class="art-block-tl">
+                                    </div>
+                                    <div class="art-block-tr">
+                                    </div>
+                                    <div class="art-block-bl">
+                                    </div>
+                                    <div class="art-block-br">
+                                    </div>
+                                    <div class="art-block-tc">
+                                    </div>
+                                    <div class="art-block-bc">
+                                    </div>
+                                    <div class="art-block-cl">
+                                    </div>
+                                    <div class="art-block-cr">
+                                    </div>
+                                    <div class="art-block-cc">
+                                    </div>
+                                    <div class="art-block-body">
+                                        <div class="art-blockheader">
+                                            <div class="t">
+                                                Informações para contato</div>
+                                        </div>
+                                        <div class="art-blockcontent">
+                                            <div class="art-blockcontent-body">
+                                                <!-- block-content -->
+                                                <div>
+                                                    <img src="/resources/images/contact.jpg" title="SOS GORO BH" alt="SOS GORO BH" style="margin: 0 auto;
+                                                        display: block; width: 95%" />
+                                                    <br />
+                                                    <b>SOS Goró ltda.</b><br />
+                                                    R. Itajubá, 760, Floresta - BH<br />
+                                                    Email: <a href="mailto:sosgoro@sosgoro.com">sosgoro@sosgoro.com</a><br />
+                                                    <br />
+                                                    Delivery: (31) 3567-8810
+                                                    <br />
+                                                </div>
+                                                <!-- /block-content -->
+                                                <div class="cleared">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cleared">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="art-layout-cell art-content" id="areaCentral">
+                                <div class="art-post">
+                                    <div class="art-post-tl">
+                                    </div>
+                                    <div class="art-post-tr">
+                                    </div>
+                                    <div class="art-post-bl">
+                                    </div>
+                                    <div class="art-post-br">
+                                    </div>
+                                    <div class="art-post-tc">
+                                    </div>
+                                    <div class="art-post-bc">
+                                    </div>
+                                    <div class="art-post-cl">
+                                    </div>
+                                    <div class="art-post-cr">
+                                    </div>
+                                    <div class="art-post-cc">
+                                    </div>
+                                    <div class="art-post-body">
+                                        <div class="art-post-inner art-article">
+                                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                            </asp:ContentPlaceHolder>
+                                        </div>
+                                        <!-- end art-post-inner art-article-->
+                                    </div>
+                                    <!-- end art-post-body-->
+                                </div>
+                                <!-- end art-post-->
+                            </div>
+                            <!-- end art-layout-cell art-content-->
+                        </div>
+                    </div>
+                </div>
+                <div style="display: none; padding: 10px;" id="exit_content">
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,124 @@
+﻿ul#produtos .imagem
+{
+    clear: right;
+}
+
+ul#produtos .texto
+{
+    clear: left;
+}
+
+#meio #vip
+{
+    text-align: center;
+}
+
+ul#produtos li.first
+{
+    width: 143px;
+}
+
+.x-grid-row-summary .x-grid-cell-Cost .x-grid-cell-inner
+{
+    background-color: #e1e2e4;
+}
+
+.x-grid-row-summary .x-grid-cell-inner
+{
+    font-weight: bold;
+    font-size: 11px;
+    background-color: #f1f2f4;
+}
+.cesta .spinbutton
+{
+    border: 1px solid orange;
+    height: 20px !important;
+    padding-top: 3px;
+    text-align: right;
+    vertical-align: bottom;
+    width: 22px;
+}
+
+INPUT.spinbutton
+{
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/spinbtn_updn.gif"); /* background-image: url("../spinbtn_updn.gif"); */
+    background-position: 100% 0;
+    background-repeat: no-repeat;
+    padding-right: 15px;
+}
+
+INPUT.spinbutton.up
+{
+    /* Change button img when mouse is over the UP-arrow */
+    cursor: pointer;
+    background-position: 100% -25px; /* 18px matches height of 2 visible buttons */
+}
+INPUT.spinbutton.down
+{
+    /* Change button img when mouse is over the DOWN-arrow */
+    cursor: pointer;
+    background-position: 100% -50px; /* 36px matches height of 2x2 visible buttons */
+}
+
+ul#produtos li
+{
+    float: left;
+    height: 242px;
+    list-style: none outside none;
+    padding-top: 5px;
+    width: 145px;
+    text-align: center;
+}
+
+.italico28
+{
+    font-size: 22px;
+    font-style: italic;
+}
+
+.red
+{
+    color: #CC0000;
+}
+
+ul#produtos .texto .descricao_produto
+{
+    height: 90px;
+    padding: 0 4px;
+}
+
+.descricao_produto
+{
+    display: block;
+    height: 180px;
+}
+
+ul#produtos .texto .cesta
+{
+    clear: left;
+}
+
+#CarrinhoVitrine
+{
+    border: 1px solid #FF7800;
+    z-index: 99;
+    position: fixed;
+    background: #D0D0D0;
+}
+
+.bV
+{
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -ms-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+}
+
+.cesta .comprar
+{
+    position: relative;
+    cursor: pointer;
+    height: 23px;
+}

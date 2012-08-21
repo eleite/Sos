@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ModelSos.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ModelSosStoreContainer">
+    <EntitySet Name="Casco" EntityType="ModelSos.Store.Casco" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CategoriaProduto" EntityType="ModelSos.Store.CategoriaProduto" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Endereco" EntityType="ModelSos.Store.Endereco" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Produto" EntityType="ModelSos.Store.Produto" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Telefone" EntityType="ModelSos.Store.Telefone" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Usuario" EntityType="ModelSos.Store.Usuario" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_CategoriaProdutoProduto" Association="ModelSos.Store.FK_CategoriaProdutoProduto">
+      <End Role="CategoriaProduto" EntitySet="CategoriaProduto" />
+      <End Role="Produto" EntitySet="Produto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Produto_Casco" Association="ModelSos.Store.FK_Produto_Casco">
+      <End Role="Casco" EntitySet="Casco" />
+      <End Role="Produto" EntitySet="Produto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioEnderecos" Association="ModelSos.Store.FK_UsuarioEnderecos">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Endereco" EntitySet="Endereco" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioTelefone" Association="ModelSos.Store.FK_UsuarioTelefone">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Telefone" EntitySet="Telefone" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Casco">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Preco" Type="decimal" Nullable="false" Scale="2" />
+  </EntityType>
+  <EntityType Name="CategoriaProduto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Endereco">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Rua" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Numero" Type="int" Nullable="false" />
+    <Property Name="Complemento" Type="nvarchar(max)" />
+    <Property Name="Bairro" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Cidade" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Estado" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UsuarioEnderecos_Endereco_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Produto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descricao" Type="nvarchar(max)" />
+    <Property Name="Preco" Type="decimal" />
+    <Property Name="PrecoAntigo" Type="decimal" Nullable="false" />
+    <Property Name="Disponivel" Type="bit" Nullable="false" />
+    <Property Name="Imagem" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Categoria_Id" Type="int" Nullable="false" />
+    <Property Name="Casco_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Telefone">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Numero" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Tipo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UsuarioTelefone_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Senha" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CategoriaProdutoProduto">
+    <End Role="CategoriaProduto" Type="ModelSos.Store.CategoriaProduto" Multiplicity="1" />
+    <End Role="Produto" Type="ModelSos.Store.Produto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoriaProduto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Produto">
+        <PropertyRef Name="Categoria_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Produto_Casco">
+    <End Role="Casco" Type="ModelSos.Store.Casco" Multiplicity="0..1" />
+    <End Role="Produto" Type="ModelSos.Store.Produto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Casco">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Produto">
+        <PropertyRef Name="Casco_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioEnderecos">
+    <End Role="Usuario" Type="ModelSos.Store.Usuario" Multiplicity="0..1" />
+    <End Role="Endereco" Type="ModelSos.Store.Endereco" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Endereco">
+        <PropertyRef Name="UsuarioEnderecos_Endereco_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioTelefone">
+    <End Role="Usuario" Type="ModelSos.Store.Usuario" Multiplicity="1" />
+    <End Role="Telefone" Type="ModelSos.Store.Telefone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Telefone">
+        <PropertyRef Name="UsuarioTelefone_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

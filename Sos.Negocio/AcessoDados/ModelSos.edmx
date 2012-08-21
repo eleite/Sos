@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModelSos.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ModelSosStoreContainer">
+          <EntitySet Name="Casco" EntityType="ModelSos.Store.Casco" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CategoriaProduto" EntityType="ModelSos.Store.CategoriaProduto" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Endereco" EntityType="ModelSos.Store.Endereco" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Produto" EntityType="ModelSos.Store.Produto" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Telefone" EntityType="ModelSos.Store.Telefone" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Usuario" EntityType="ModelSos.Store.Usuario" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_CategoriaProdutoProduto" Association="ModelSos.Store.FK_CategoriaProdutoProduto">
+            <End Role="CategoriaProduto" EntitySet="CategoriaProduto" />
+            <End Role="Produto" EntitySet="Produto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Produto_Casco" Association="ModelSos.Store.FK_Produto_Casco">
+            <End Role="Casco" EntitySet="Casco" />
+            <End Role="Produto" EntitySet="Produto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioEnderecos" Association="ModelSos.Store.FK_UsuarioEnderecos">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Endereco" EntitySet="Endereco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioTelefone" Association="ModelSos.Store.FK_UsuarioTelefone">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Telefone" EntitySet="Telefone" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Casco">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Preco" Type="decimal" Nullable="false" Scale="2" />
+        </EntityType>
+        <EntityType Name="CategoriaProduto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Endereco">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Rua" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Numero" Type="int" Nullable="false" />
+          <Property Name="Complemento" Type="nvarchar(max)" />
+          <Property Name="Bairro" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Cidade" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Estado" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UsuarioEnderecos_Endereco_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Produto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Descricao" Type="nvarchar(max)" />
+          <Property Name="Preco" Type="decimal" />
+          <Property Name="PrecoAntigo" Type="decimal" Nullable="false" />
+          <Property Name="Disponivel" Type="bit" Nullable="false" />
+          <Property Name="Imagem" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Categoria_Id" Type="int" Nullable="false" />
+          <Property Name="Casco_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Telefone">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Numero" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Tipo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UsuarioTelefone_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Senha" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CategoriaProdutoProduto">
+          <End Role="CategoriaProduto" Type="ModelSos.Store.CategoriaProduto" Multiplicity="1" />
+          <End Role="Produto" Type="ModelSos.Store.Produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoriaProduto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Produto">
+              <PropertyRef Name="Categoria_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Produto_Casco">
+          <End Role="Casco" Type="ModelSos.Store.Casco" Multiplicity="0..1" />
+          <End Role="Produto" Type="ModelSos.Store.Produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Casco">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Produto">
+              <PropertyRef Name="Casco_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioEnderecos">
+          <End Role="Usuario" Type="ModelSos.Store.Usuario" Multiplicity="0..1" />
+          <End Role="Endereco" Type="ModelSos.Store.Endereco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Endereco">
+              <PropertyRef Name="UsuarioEnderecos_Endereco_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioTelefone">
+          <End Role="Usuario" Type="ModelSos.Store.Usuario" Multiplicity="1" />
+          <End Role="Telefone" Type="ModelSos.Store.Telefone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Telefone">
+              <PropertyRef Name="UsuarioTelefone_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Sos.Negocio.Entidades" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="ModelSosContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Endereco" EntityType="Sos.Negocio.Entidades.Endereco" />
+          <EntitySet Name="Usuario" EntityType="Sos.Negocio.Entidades.Usuario" />
+          <AssociationSet Name="FK_UsuarioEnderecos" Association="Sos.Negocio.Entidades.FK_UsuarioEnderecos">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Endereco" EntitySet="Endereco" />
+          </AssociationSet>
+          <EntitySet Name="CategoriaProduto" EntityType="Sos.Negocio.Entidades.CategoriaProduto" />
+          <EntitySet Name="Produto" EntityType="Sos.Negocio.Entidades.Produto" />
+          <AssociationSet Name="FK_CategoriaProdutoProduto" Association="Sos.Negocio.Entidades.FK_CategoriaProdutoProduto">
+            <End Role="CategoriaProduto" EntitySet="CategoriaProduto" />
+            <End Role="Produto" EntitySet="Produto" />
+          </AssociationSet>
+          <EntitySet Name="Telefone" EntityType="Sos.Negocio.Entidades.Telefone" />
+          <AssociationSet Name="FK_UsuarioTelefone" Association="Sos.Negocio.Entidades.FK_UsuarioTelefone">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Telefone" EntitySet="Telefone" />
+          </AssociationSet>
+          <EntitySet Name="Casco" EntityType="Sos.Negocio.Entidades.Casco" />
+          <AssociationSet Name="FK_Produto_Casco" Association="Sos.Negocio.Entidades.FK_Produto_Casco">
+            <End Role="Casco" EntitySet="Casco" />
+            <End Role="Produto" EntitySet="Produto" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Endereco">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Rua" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Numero" Nullable="false" />
+          <Property Type="String" Name="Complemento" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Bairro" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Cidade" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="UsuarioEnderecos_Endereco_Id" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="Sos.Negocio.Entidades.FK_UsuarioEnderecos" FromRole="Endereco" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Senha" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Enderecos" Relationship="Sos.Negocio.Entidades.FK_UsuarioEnderecos" FromRole="Usuario" ToRole="Endereco" />
+          <NavigationProperty Name="Telefones" Relationship="Sos.Negocio.Entidades.FK_UsuarioTelefone" FromRole="Usuario" ToRole="Telefone" />
+        </EntityType>
+        <Association Name="FK_UsuarioEnderecos">
+          <End Type="Sos.Negocio.Entidades.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="Sos.Negocio.Entidades.Endereco" Role="Endereco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Endereco">
+              <PropertyRef Name="UsuarioEnderecos_Endereco_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CategoriaProduto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nome" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Produtos" Relationship="Sos.Negocio.Entidades.FK_CategoriaProdutoProduto" FromRole="CategoriaProduto" ToRole="Produto" />
+        </EntityType>
+        <EntityType Name="Produto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nome" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Descricao" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="Preco" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PrecoAntigo" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Boolean" Name="Disponivel" Nullable="false" />
+          <Property Type="String" Name="Imagem" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Categoria_Id" Nullable="false" />
+          <NavigationProperty Name="Categoria" Relationship="Sos.Negocio.Entidades.FK_CategoriaProdutoProduto" FromRole="Produto" ToRole="CategoriaProduto" />
+          <Property Type="Int32" Name="Casco_Id" />
+          <NavigationProperty Name="Casco" Relationship="Sos.Negocio.Entidades.FK_Produto_Casco" FromRole="Produto" ToRole="Casco" />
+        </EntityType>
+        <Association Name="FK_CategoriaProdutoProduto">
+          <End Type="Sos.Negocio.Entidades.CategoriaProduto" Role="CategoriaProduto" Multiplicity="1" />
+          <End Type="Sos.Negocio.Entidades.Produto" Role="Produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoriaProduto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Produto">
+              <PropertyRef Name="Categoria_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Telefone">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Numero" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Tipo" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="UsuarioTelefone_Id" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="Sos.Negocio.Entidades.FK_UsuarioTelefone" FromRole="Telefone" ToRole="Usuario" />
+        </EntityType>
+        <Association Name="FK_UsuarioTelefone">
+          <End Type="Sos.Negocio.Entidades.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="Sos.Negocio.Entidades.Telefone" Role="Telefone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Telefone">
+              <PropertyRef Name="UsuarioTelefone_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Casco">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Decimal" Name="Preco" Nullable="false" Precision="18" Scale="2" />
+        </EntityType>
+        <Association Name="FK_Produto_Casco">
+          <End Type="Sos.Negocio.Entidades.Casco" Role="Casco" Multiplicity="0..1" />
+          <End Type="Sos.Negocio.Entidades.Produto" Role="Produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Casco">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Produto">
+              <PropertyRef Name="Casco_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelSosStoreContainer" CdmEntityContainer="ModelSosContainer">
+    <EntitySetMapping Name="Endereco">
+            <EntityTypeMapping TypeName="Sos.Negocio.Entidades.Endereco">
+              <MappingFragment StoreEntitySet="Endereco">
+                <ScalarProperty Name="UsuarioEnderecos_Endereco_Id" ColumnName="UsuarioEnderecos_Endereco_Id" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+                <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+                <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Rua" ColumnName="Rua" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="Sos.Negocio.Entidades.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Senha" ColumnName="Senha" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoriaProduto">
+            <EntityTypeMapping TypeName="Sos.Negocio.Entidades.CategoriaProduto">
+              <MappingFragment StoreEntitySet="CategoriaProduto">
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Produto">
+            <EntityTypeMapping TypeName="Sos.Negocio.Entidades.Produto">
+              <MappingFragment StoreEntitySet="Produto">
+                <ScalarProperty Name="Casco_Id" ColumnName="Casco_Id" />
+                <ScalarProperty Name="Categoria_Id" ColumnName="Categoria_Id" />
+                <ScalarProperty Name="Imagem" ColumnName="Imagem" />
+                <ScalarProperty Name="Disponivel" ColumnName="Disponivel" />
+                <ScalarProperty Name="PrecoAntigo" ColumnName="PrecoAntigo" />
+                <ScalarProperty Name="Preco" ColumnName="Preco" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Telefone">
+            <EntityTypeMapping TypeName="Sos.Negocio.Entidades.Telefone">
+              <MappingFragment StoreEntitySet="Telefone">
+                <ScalarProperty Name="UsuarioTelefone_Id" ColumnName="UsuarioTelefone_Id" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Casco">
+            <EntityTypeMapping TypeName="Sos.Negocio.Entidades.Casco">
+              <MappingFragment StoreEntitySet="Casco">
+                <ScalarProperty Name="Preco" ColumnName="Preco" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="ModelSos" >
+        <EntityTypeShape EntityType="Sos.Negocio.Entidades.Endereco" Width="2.625" PointX="10.125" PointY="0.5" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="Sos.Negocio.Entidades.Usuario" Width="2" PointX="5.125" PointY="0.5" Height="1.9802864583333335" />
+        <AssociationConnector Association="Sos.Negocio.Entidades.FK_UsuarioEnderecos" >
+          <ConnectorPoint PointX="7.125" PointY="1.1340787742106122" />
+          <ConnectorPoint PointX="10.125" PointY="1.1340787742106122" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Sos.Negocio.Entidades.CategoriaProduto" Width="1.5" PointX="0.875" PointY="1.625" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="Sos.Negocio.Entidades.Produto" Width="1.5" PointX="3.125" PointY="1.125" Height="2.7494921874999996" />
+        <AssociationConnector Association="Sos.Negocio.Entidades.FK_CategoriaProdutoProduto" >
+          <ConnectorPoint PointX="2.375" PointY="2.422841796875" />
+          <ConnectorPoint PointX="3.125" PointY="2.422841796875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Sos.Negocio.Entidades.Telefone" Width="2" PointX="7.625" PointY="3.125" Height="1.9802864583333317" />
+        <AssociationConnector Association="Sos.Negocio.Entidades.FK_UsuarioTelefone" >
+          <ConnectorPoint PointX="6.125" PointY="2.4802864583333335" />
+          <ConnectorPoint PointX="6.125" PointY="4.1151432291666659" />
+          <ConnectorPoint PointX="7.625" PointY="4.1151432291666659" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Sos.Negocio.Entidades.Casco" Width="1.5" PointX="0.5" PointY="4" Height="1.4033821614583326" />
+        <AssociationConnector Association="Sos.Negocio.Entidades.FK_Produto_Casco" >
+          <ConnectorPoint PointX="2" PointY="4.8312391067708322" />
+          <ConnectorPoint PointX="3.875" PointY="4.8312391067708322" />
+          <ConnectorPoint PointX="3.875" PointY="4.2590950520833326" />
+        </AssociationConnector>
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelSosStoreContainer" CdmEntityContainer="ModelSosContainer">
+    <EntitySetMapping Name="Endereco">
+      <EntityTypeMapping TypeName="Sos.Negocio.Entidades.Endereco">
+        <MappingFragment StoreEntitySet="Endereco">
+          <ScalarProperty Name="UsuarioEnderecos_Endereco_Id" ColumnName="UsuarioEnderecos_Endereco_Id" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Rua" ColumnName="Rua" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="Sos.Negocio.Entidades.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoriaProduto">
+      <EntityTypeMapping TypeName="Sos.Negocio.Entidades.CategoriaProduto">
+        <MappingFragment StoreEntitySet="CategoriaProduto">
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produto">
+      <EntityTypeMapping TypeName="Sos.Negocio.Entidades.Produto">
+        <MappingFragment StoreEntitySet="Produto">
+          <ScalarProperty Name="Casco_Id" ColumnName="Casco_Id" />
+          <ScalarProperty Name="Categoria_Id" ColumnName="Categoria_Id" />
+          <ScalarProperty Name="Imagem" ColumnName="Imagem" />
+          <ScalarProperty Name="Disponivel" ColumnName="Disponivel" />
+          <ScalarProperty Name="PrecoAntigo" ColumnName="PrecoAntigo" />
+          <ScalarProperty Name="Preco" ColumnName="Preco" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Telefone">
+      <EntityTypeMapping TypeName="Sos.Negocio.Entidades.Telefone">
+        <MappingFragment StoreEntitySet="Telefone">
+          <ScalarProperty Name="UsuarioTelefone_Id" ColumnName="UsuarioTelefone_Id" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Casco">
+      <EntityTypeMapping TypeName="Sos.Negocio.Entidades.Casco">
+        <MappingFragment StoreEntitySet="Casco">
+          <ScalarProperty Name="Preco" ColumnName="Preco" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

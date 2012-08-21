@@ -1,0 +1,13 @@
+c:\users\erico\documents\visual studio 2010\Projects\Sos\Sos\bin\Sos.dll
+c:\users\erico\documents\visual studio 2010\Projects\Sos\Sos\bin\Sos.pdb
+c:\users\erico\documents\visual studio 2010\Projects\Sos\Sos\bin\Ext.Net.dll
+c:\users\erico\documents\visual studio 2010\Projects\Sos\Sos\bin\Ext.Net.Utilities.dll
+c:\users\erico\documents\visual studio 2010\Projects\Sos\Sos\bin\Newtonsoft.Json.dll
+c:\users\erico\documents\visual studio 2010\Projects\Sos\Sos\bin\Transformer.NET.dll
+c:\users\erico\documents\visual studio 2010\Projects\Sos\Sos\obj\Debug\ResolveAssemblyReference.cache
+c:\users\erico\documents\visual studio 2010\Projects\Sos\Sos\obj\Debug\Sos.dll
+c:\users\erico\documents\visual studio 2010\Projects\Sos\Sos\obj\Debug\Sos.pdb
+c:\users\erico\documents\visual studio 2010\Projects\Sos\Sos\bin\Sos.Negocio.dll
+c:\users\erico\documents\visual studio 2010\Projects\Sos\Sos\bin\Sos.Negocio.pdb
+C:\Users\Erico\Documents\Visual Studio 2010\Projects\Sos\Sos\bin\Recaptcha.dll
+C:\Users\Erico\Documents\Visual Studio 2010\Projects\Sos\Sos\bin\Recaptcha.pdb
