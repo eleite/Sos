@@ -14,7 +14,7 @@
         <ext:ResourceManager ID="ResourceManager1" runat="server" />
         
         <h1>Password Validation</h1>
-         
+          
         <p>This example shows a password verification, the second value must be equivalent to the first to validate.</p>
         
         <ext:Window ID="Window1" 
